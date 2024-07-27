@@ -1,0 +1,23 @@
+<div class="weather-hours">
+  <header><h3>Forecast for hours</h3></header>
+  <div class="item-container">
+    <i class="fa-solid fa-arrow-left btn-left" (click)="moveSlide(-1)"></i>
+    <ul #items class="hours" #myli>
+      <li
+        *ngFor="let hour of hours; let i = index"
+        (click)="showHourData(hour)"
+      >
+        <div>
+          <span>+{{ hour.heatindex_c }}°</span>
+          <span>
+            <img [src]="hour.condition.icon" alt="" />
+          </span>
+        </div>
+        <p>
+          <span>{{ hour.time.split(" ")[1] }}</span> {{ day }}
+        </p>
+      </li>
+    </ul>
+    <i class="fa-solid fa-arrow-right btn-right" (click)="moveSlide(1)"></i>
+  </div>
+</div>

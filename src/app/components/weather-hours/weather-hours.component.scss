@@ -1,0 +1,75 @@
+@import "../main/main.component.scss";
+.weather-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: hidden;
+
+  .btn-white {
+    background-color: white;
+    padding: 8px;
+    border-radius: $border-radius;
+    cursor: pointer;
+  }
+
+  .item-container {
+    position: relative;
+  }
+
+  .btn-left,
+  .btn-right {
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .btn-right {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+
+  .btn-left {
+    left: 0;
+    &:active + div .hours li {
+      transform: translateX(10%);
+      transition: 0.3s;
+    }
+  }
+
+  .hours {
+    display: grid;
+    grid-template-columns: repeat(24, 140px);
+    gap: 30px;
+    height: 114px;
+    transition: 0.2s;
+
+    li {
+      color: black;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+
+      div {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+
+        img {
+          width: 37px;
+        }
+      }
+    }
+  }
+}
+
+p,
+span,
+h1,
+h2,
+h3 {
+  font-family: "Open sans";
+}

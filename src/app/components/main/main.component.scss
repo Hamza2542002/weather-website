@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+$border-radius: 5px;
+$box-shadow: 1px 1px 7px black;
+.container {
+  max-width: 850px;
+  background-color: transparent;
+  padding: 50px 15px;
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  margin: 20px auto;
+  min-height: 720px;
+  header.search-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35px;
+
+    .input-white {
+      padding: 8px 15px;
+      background-color: transparent;
+      border-radius: $border-radius;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      outline: none;
+      border: 0;
+    }
+    p.input-white {
+      align-self: flex-end;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+      font-size: 14px;
+    }
+    form {
+      .form-head {
+        font-weight: 400;
+      }
+      .input-div {
+        position: relative;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        margin-top: 15px;
+        button {
+          background-color: black;
+          border-radius: $border-radius;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          color: white;
+          padding: 8px 10px;
+          outline: none;
+          border: 0;
+        }
+        .cities {
+          background-color: white;
+          position: absolute;
+          top: 31px;
+          left: 0px;
+          width: 100%;
+          border-bottom-left-radius: $border-radius;
+          border-bottom-right-radius: $border-radius;
+          box-shadow: $box-shadow;
+
+          .city {
+            padding: 5px 0;
+            border-bottom: 1px solid #434343;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:hover {
+              background-color: darken($color: white, $amount: 10%);
+            }
+
+            p {
+              padding-left: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .weather {
+    & > div {
+      margin: 40px 0;
+      background-color: transparent;
+      padding: 15px;
+      border-radius: $border-radius;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .weather-info {
+      margin: 20px 0;
+      .weather-temperature {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        margin: 15px 0;
+      }
+    }
+
+    .weather-hours {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      overflow: hidden;
+
+      .btn-white {
+        background-color: white;
+        padding: 8px;
+        border-radius: $border-radius;
+        cursor: pointer;
+      }
+
+      .btn-left {
+        &:active + div .hours li {
+          transform: translateX(10%);
+          transition: 0.3s;
+        }
+      }
+
+      .hours {
+        display: grid;
+        grid-template-columns: repeat(24, 140px);
+        gap: 25px;
+        overflow: hidden;
+        height: 94px;
+
+        &:hover li {
+          transform: translateX(-155px);
+        }
+
+        li {
+          padding: 15px;
+          text-align: center;
+
+          div {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+  p,
+  span,
+  h1,
+  h2,
+  h3 {
+    font-family: "Open sans";
+  }
+}

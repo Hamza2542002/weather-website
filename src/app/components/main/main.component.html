@@ -1,0 +1,62 @@
+<main class="container">
+  <header class="search-header">
+    <form action="" (submit)="handleSubmit($event)">
+      <p class="form-head">Enter a city or region</p>
+      <div class="input-div">
+        <input
+          (focus)="showCities = true"
+          (input)="getCity($event)"
+          [(ngModel)]="cityName"
+          class="input-white"
+          type="search"
+          name="search"
+          id="search"
+          placeholder="For example, Moscow"
+        />
+        <button type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <ul class="cities" *ngIf="showCities">
+          <li
+            (click)="getweather(city.name)"
+            class="city"
+            *ngFor="let city of cities"
+          >
+            <p>{{ city.name }}</p>
+            <p>{{ city.country }}</p>
+          </li>
+        </ul>
+      </div>
+    </form>
+    <p *ngIf="location" class="input-white">
+      Local Time: <span>{{ day }}</span>
+      {{ hour }}
+    </p>
+  </header>
+  <section class="weather" *ngIf="weather">
+    <div class="weather-info">
+      <header>
+        <h2>{{ location.name }}</h2>
+        <p>Today at {{ hour }}</p>
+      </header>
+      <div class="weather-temperature">
+        <h2>+{{ current.temp_c }}°</h2>
+        <p class="weather-icon">
+          <img [src]="condition.icon" alt="" />
+        </p>
+      </div>
+      <div class="temp-summary">
+        <p>
+          {{ condition.text }}, feels like
+          <span>+{{ current.feelslike_c | number: "2.0-0" }}°</span>
+        </p>
+      </div>
+      <app-weather-info-list [currenWeather]="current"></app-weather-info-list>
+    </div>
+    <app-weather-hours
+      [hours]="hours"
+      [day]="day"
+      (currentHour)="handleHourChange($event)"
+    ></app-weather-hours>
+  </section>
+</main>
